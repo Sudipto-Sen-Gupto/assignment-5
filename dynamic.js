@@ -60,3 +60,13 @@ const clear=document.getElementById("clear");
         const divi=document.getElementById("divi");
         divi.innerHTML=""
       })
+
+ const copy=document.getElementsByClassName("copying");
+ for(const item of copy){
+  item.addEventListener("click",(e)=>{
+    const clipBoard=document.getElementById("copy");
+    const copyText=parseInt(clipBoard.innerText);
+    const newCopy=copyText+1;
+    clipBoard.innerText=newCopy;
+  })
+ }
