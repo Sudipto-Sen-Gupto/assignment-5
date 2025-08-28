@@ -70,10 +70,8 @@ const clear=document.getElementById("clear");
     clipBoard.innerText=newCopy;
 
 
-    const card = item.parentElement.parentElement; // safer than parentElement
+    const card = item.parentElement.parentElement; 
     const subtitle = card.querySelector(".subtitle").innerText;
-
-    // ✅ 3. Copy subtitle text to clipboard
     const textarea = document.createElement("textarea");
     textarea.value = subtitle;
     document.body.appendChild(textarea);
