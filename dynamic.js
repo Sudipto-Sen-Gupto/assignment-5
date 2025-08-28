@@ -45,10 +45,29 @@ item.addEventListener("click",(e)=>{
      const first=card.querySelector(".title").innerText;
      const second=card.querySelector(".subtitle").innerText;
      const date=new Date();    
-     const hour=date.getHours();
-     const minute=date.getMinutes();
+     const hours=date.getHours();
+     const minutes=date.getMinutes();
      const scnd=date.getSeconds();
-      childDiv.innerHTML=`<p>${first} </br> ${second}</p><p>${hour}:${minute}:${scnd}</p>`;
+
+     let ampm = "";
+        if (hours >= 12) {
+         ampm = "PM";
+           } 
+           else {
+                ampm = "AM";
+                   }
+
+                 if (hours > 12) {
+                hours = hours - 12;
+                      } 
+                      else if (hours === 0) {
+                         hours = 12;
+                             }
+
+                 if (minutes < 10) {
+                     minutes = "0" + minutes;
+                                 }
+      childDiv.innerHTML=`<p>${first} </br> ${second}</p><p>${hours}:${minutes}:${scnd} ${ampm}</p>`;
       divi.append(childDiv); 
       alert(`📞Calling ${first} ${second}...`)
       
@@ -68,8 +87,6 @@ const clear=document.getElementById("clear");
     const copyText=parseInt(clipBoard.innerText);
     const newCopy=copyText+1;
     clipBoard.innerText=newCopy;
-
-
     const card = item.parentElement.parentElement; 
     const subtitle = card.querySelector(".subtitle").innerText;
     const textarea = document.createElement("textarea");
