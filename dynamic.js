@@ -18,12 +18,13 @@ for(const item of loveSign){
 
 //call section
 const call=document.getElementsByClassName("calling");
+
 for(const item of call){
 
 item.addEventListener("click",(e)=>{
       const coin=document.getElementById("hundred")
 
-     
+    
  
     const copCoin=parseInt(coin.innerText);
     const cutCoin=20;
@@ -40,14 +41,16 @@ item.addEventListener("click",(e)=>{
       const childDiv=document.createElement("div");
      childDiv.classList.add("flex","justify-between","mt-5","text-2xl","items-center","bg-gray-50","p-4","rounded-3xl")
      
-     const first=document.getElementById("head1").innerText;
-     const second=document.getElementById("head2").innerText;
+     const card = item.parentElement.parentElement; 
+     const first=card.querySelector(".title").innerText;
+     const second=card.querySelector(".subtitle").innerText;
      const date=new Date();    
      const hour=date.getHours();
      const minute=date.getMinutes();
-      childDiv.innerHTML=`<p>${first} </br> ${second}</p><p>${hour}:${minute}</p>`;
+     const scnd=date.getSeconds();
+      childDiv.innerHTML=`<p>${first} </br> ${second}</p><p>${hour}:${minute}:${scnd}</p>`;
       divi.append(childDiv); 
-     
+      alert(`📞Calling ${first} ${second}...`)
       
     })
 }
