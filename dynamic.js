@@ -34,7 +34,7 @@ item.addEventListener("click",(e)=>{
       const divi=document.getElementById("divi");
 
       if(coin.innerText<0){
-        alert("Your number is invalid");
+        alert("😥You don't have much coins.You need at least 20 coins to make a call.😊");
         coin.innerText=0;
         return;
     } 
@@ -68,5 +68,17 @@ const clear=document.getElementById("clear");
     const copyText=parseInt(clipBoard.innerText);
     const newCopy=copyText+1;
     clipBoard.innerText=newCopy;
+
+
+    const card = item.parentElement.parentElement; // safer than parentElement
+    const subtitle = card.querySelector(".subtitle").innerText;
+
+    // ✅ 3. Copy subtitle text to clipboard
+    const textarea = document.createElement("textarea");
+    textarea.value = subtitle;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
   })
  }
