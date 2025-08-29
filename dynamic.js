@@ -31,7 +31,7 @@ item.addEventListener("click",(e)=>{
     const finalCoin=copCoin-cutCoin;
     coin.innerText=finalCoin;
     
-      const divi=document.getElementById("divi");
+      const dev=document.getElementById("divi");
 
       if(coin.innerText<0){
         alert("😥You don't have much coins.You need at least 20 coins to make a call.😊");
@@ -45,9 +45,9 @@ item.addEventListener("click",(e)=>{
      const first=card.querySelector(".title").innerText;
      const second=card.querySelector(".subtitle").innerText;
      const date=new Date();    
-     const hours=date.getHours();
-     const minutes=date.getMinutes();
-     const scnd=date.getSeconds();
+     let hours=date.getHours();
+     let minutes=date.getMinutes();
+     let scnd=date.getSeconds();
 
      let ampm = "";
         if (hours >= 12) {
@@ -68,7 +68,7 @@ item.addEventListener("click",(e)=>{
                      minutes = "0" + minutes;
                                  }
       childDiv.innerHTML=`<p>${first} </br> ${second}</p><p>${hours}:${minutes}:${scnd} ${ampm}</p>`;
-      divi.append(childDiv); 
+      dev.append(childDiv); 
       alert(`📞Calling ${first} ${second}...`)
       
     })
